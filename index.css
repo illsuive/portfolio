@@ -1,0 +1,417 @@
+/* 
+:root {
+    --clr-bg: #1A1A2E; 
+    --clr-secondary-bg: #16213E; 
+    --clr-text: #EAEAEA; 
+    --clr-accent: #E94560; 
+    --clr-gradient: linear-gradient(45deg, #FF6B6B, #F7C43C); 
+    --clr-shadow: rgba(0, 0, 0, 0.6);
+    --padding-section: 80px 0;
+}
+
+body[data-theme="light"] {
+    --clr-bg: #F4F4F9;
+    --clr-secondary-bg: #FFFFFF;
+    --clr-text: #1A1A2E;
+    --clr-accent: #0F3460;
+    --clr-gradient: linear-gradient(45deg, #00C6FF, #0072FF); 
+    --clr-shadow: rgba(0, 0, 0, 0.15);
+} */
+
+:root {
+    --clr-bg: #0F1A20; 
+    --clr-secondary-bg: #162731; 
+    --clr-text: #E0F7FA; 
+    --clr-accent: #00CED1; 
+    --clr-gradient: linear-gradient(45deg, #18A89A, #28E0D2); 
+    --clr-shadow: rgba(0, 0, 0, 0.6);
+    --padding-section: 80px 0;
+}
+
+body[data-theme="light"] {
+    --clr-bg: #FAFAFA; 
+    --clr-secondary-bg: #FFFFFF;
+    --clr-text: #0F1A20; 
+    --clr-accent: #1988A8; 
+    --clr-gradient: linear-gradient(45deg, #16A085, #7DCEA0); 
+    --clr-shadow: rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================================
+   2. Base & Utility Styles (Critical for variable application)
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+/* Apply Variables to Body and Set Transitions */
+body {
+    background-color: var(--clr-bg);
+    color: var(--clr-text);
+    
+    /* Smooth transition for Dark/Light Mode switch */
+    transition: background-color 0.5s ease, color 0.5s ease;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Container limits width and centers content */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section Padding */
+.content-section {
+    padding: var(--padding-section);
+}
+
+/* Alternate background for sections like Skills/Education */
+.alternate-bg {
+    background-color: var(--clr-secondary-bg);
+}
+
+/* Headers */
+h1, h2, h3 {
+    margin-top: 0;
+    line-height: 1.2;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--clr-accent);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* =========================================================
+   3. Navigation & Header
+   ========================================================= */
+
+.main-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--clr-bg);
+    border-bottom: 1px solid var(--clr-secondary-bg);
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav a {
+    color: var(--clr-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--clr-accent); 
+}
+
+.theme-toggle-btn {
+    background: var(--clr-secondary-bg);
+    color: var(--clr-text);
+    border: 1px solid var(--clr-accent);
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 120px 0;
+    text-align: center;
+}
+
+.hero-section .main-heading {
+    /* Apply Gradient to Heading */
+    background: var(--clr-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* Fallback */
+    font-size: 4.5rem; 
+    margin: 10px 0;
+}
+
+.hero-section .tagline {
+    font-size: 1.25rem;
+    color: var(--clr-text);
+    margin-bottom: 40px;
+}
+
+/* CTA Buttons */
+.cta-primary, .cta-secondary, .project-link {
+    display: inline-block;
+    padding: 12px 30px;
+    margin: 0 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease, background 0.3s ease;
+}
+
+.cta-primary {
+    color: var(--clr-bg); /* Dark text */
+    background: var(--clr-accent);
+    border: 2px solid var(--clr-accent);
+}
+
+.cta-secondary {
+    color: var(--clr-accent); /* Accent text */
+    background: transparent;
+    border: 2px solid var(--clr-accent);
+}
+
+.cta-primary:hover, .cta-secondary:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+/* =========================================================
+   4. About & Skills
+   ========================================================= */
+
+.about-grid {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-text {
+    flex: 2;
+}
+
+/* Profile Photo Sizing (FIXED IMAGE SIZING) */
+.profile-photo {
+    width: 200px; 
+    height: 200px;
+    object-fit: cover; 
+    border-radius: 50%; /* Circular */
+    border: 4px solid var(--clr-accent); 
+    flex-shrink: 0; /* Prevents shrinking */
+    box-shadow: 0 0 20px var(--clr-shadow);
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.skill-category {
+    padding: 20px;
+    background-color: var(--clr-secondary-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--clr-shadow);
+}
+
+.skill-category h3 {
+    color: var(--clr-accent);
+    border-bottom: 1px solid var(--clr-accent);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.skill-category ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skill-category li {
+    margin-bottom: 8px;
+}
+
+/* =========================================================
+   5. Projects Section
+   ========================================================= */
+
+/* Projects Grid (Responsive columns) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--clr-secondary-bg);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px var(--clr-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Animation */
+.project-card:hover {
+    transform: translateY(-8px); /* Lift effect */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Project Card Image Sizing (FIXED IMAGE SIZING) */
+.project-card img {
+    height: 200px; /* Consistent height */
+    width: 100%; 
+    object-fit: cover; /* Cropping for uniformity */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    color: var(--clr-accent);
+}
+
+.project-link {
+    color: var(--clr-accent);
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: normal;
+    text-decoration: underline;
+    display: block;
+    margin-top: 15px;
+}
+
+/* =========================================================
+   6. Footer & Contact
+   ========================================================= */
+
+.contact-box {
+    text-align: center;
+    padding: 60px 40px;
+    border: 1px solid var(--clr-accent);
+    border-radius: 10px;
+    background-color: var(--clr-secondary-bg);
+}
+
+.contact-pitch {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.contact-details p {
+    margin: 5px 0;
+}
+
+.contact-details a {
+    color: var(--clr-accent);
+    text-decoration: none;
+}
+
+.main-footer {
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid var(--clr-secondary-bg);
+    background-color: var(--clr-bg);
+}
+
+.main-footer .social-links a {
+    color: var(--clr-text);
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.main-footer .social-links a:hover {
+    color: var(--clr-accent);
+}
+
+/* =========================================================
+   7. Responsiveness (Media Queries)
+   ========================================================= */
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 80px 0;
+    }
+    
+    .hero-section .main-heading {
+        font-size: 3rem; /* Smaller heading on tablet */
+    }
+
+    .about-grid {
+        flex-direction: column; /* Stack image and text on mobile */
+        text-align: center;
+    }
+    
+    .profile-photo {
+        margin: 20px auto;
+    }
+
+    .main-nav ul {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .hero-section .main-heading {
+        font-size: 2.2rem; /* Even smaller heading on phone */
+    }
+
+    .cta-primary, .cta-secondary {
+        display: block; /* Stack buttons */
+        margin: 10px 0;
+    }
+    
+    .main-nav ul {
+        display: none; /* Hide navigation links on small screens (can be replaced with a hamburger menu) */
+    }
+    
+    .main-nav {
+        justify-content: center; /* Center content when menu is hidden */
+    }
+}
+
+/* =========================================================
+   8. Animation Styles 
+   ========================================================= */
+
+/* Example Keyframe Animation for Hero Title */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.hero-section .main-heading {
+    animation: fadeIn 1s ease-out 0.5s backwards; /* 0.5s delay, backwards ensures the element starts in the 'from' state */
+}
+
+.animate-scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-scroll-fade.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enable smooth scrolling behavior when clicking navigation links */
+html {
+    scroll-behavior: smooth;
+}
