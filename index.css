@@ -441,3 +441,50 @@ html {
         .btn-secondary:hover {
             background-color: #545b62;
         }
+
+
+
+
+/* --- Coding Stats --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.stat-card {
+    background: var(--clr-bg);
+    border: 1px solid var(--clr-accent);
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--clr-text);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    background: var(--clr-secondary-bg);
+    box-shadow: 0 10px 20px var(--clr-shadow);
+}
+
+.stat-card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 5px var(--clr-accent));
+}
+
+.stat-card h3 {
+    margin-bottom: 10px;
+}
+
+.stat-card .rank {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--clr-accent);
+    text-transform: uppercase;
+}
